@@ -1,0 +1,59 @@
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+
+{% if photos %}
+    <ul>
+    {% for photo in photos %}
+        <li><a href = '/visitorphotosearch?photo_id={{photo[2]}}'>caption: {{photo[1]}} photo id: {{photo[2]}}</a></li>
+        <li><img src='data:image/png;base64, {{photo[0]}}'/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if comments %}
+    <ul>
+    <h4> This photo has the following comment:</h4>
+    <li>Format (User_id: Comments) User_id = 0 means it is a anonymous User</li>
+    {% for row in comments %}
+    	<li>{{row[1]}}: {{row[0]}} on {{row[2]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if likes %}
+    <ul>
+	<h4> This photo is liked by {{length}} users:</h4>
+    {% for row in likes %}
+        <li>{{row[0]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if tags %}
+    <ul>
+    <h4> This photo is has the following tags:</h4>
+    {% for row in tags %}
+        <li>{{row[0]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+<div id="edit">
+	<form method="post" action="{{url_for('visitorphotosearch2') }}">
+		<label for="tag">Enter the tags of the photo you want to search (if you want to search for multiple tags, separate the tags with single space):</label>
+		<input type="tag" name="tag" /><br />
+		<label for="comment">Enter the comments for the photo(format:photoid,comment):</label>
+		<input type="comment" name="comment" /><br />
+		<label for="pid">Enter the photoid of the photo you want to see its comments,likes and tags:</label>
+		<input type="pid" name="pid" /><br />
+		<input type="submit" />	
+	</form>
+</div>
+
+<ul>
+<li><a href='/visitorallphotos'>Browse all the photos</a></li>
+<li><a href='/'>Go Back</a></li>

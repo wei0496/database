@@ -1,0 +1,19 @@
+<!-- author ben lawson balawson@bu.edu -->
+<title>Photoshare</title>
+{% if message %}
+  <h1>Hello {{ message }}!</h1>
+{% endif %}
+        <body>
+            <div class="title">
+                <h1>Here is your information </h1>
+            </div>
+            <div id="content">
+            <h4>First name: {{name[0][0]}}</h4>
+            <h4>Last name: {{name[0][1]}}</h4>
+            <h4>Date of Birth: {{name[0][2]}}</h4>
+            <h4>Hometown: {{name[0][3]}}</h4>
+            <h4>Gender: {{name[0][4]}}</h4>
+            <h4>email: {{name[0][5]}}</h4>
+             </div>
+        </body>
+<a href='/home'>Home</a>

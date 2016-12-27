@@ -1,0 +1,16 @@
+<!doctype html>
+<body>
+    <div id="content">
+    		<h2>Here's your friends</h2>
+		    <ul>
+				{% for row in message %}
+					<li>name: {{row[0]}}{{row[1]}} Email: {{row[2]}}</li>
+				{% endfor %}
+			</ul>
+        </form>
+    </div>
+</body>
+
+<ul>
+<li><a href='/home'>Home</a></li>
+</ul>

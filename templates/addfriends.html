@@ -1,0 +1,30 @@
+<!doctype html>
+<body>
+
+{% if name %}
+  <h1>{{ name }}!</h1>
+{% endif %}
+
+{% if message %}
+    <ul>
+    <h4> Here are the user's information </h4>
+    {% for row in message %}
+    	<li>Name: {{row[1]}} {{row[2]}} || Email: {{row[0]}} || DOB: {{row[3]}} || Hometown: {{row[4]}} || Gender: {{row[5]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+    <div id="content">
+        <form method="post" action="">
+            <label for="email1">Enter the email address of the User you want to see his/her information:</label>
+            <input type="email1" name="email1" /><br />
+            <label for="email">Enter the email address of the User you want to add as a friend:</label>
+            <input type="email" name="email" /><br />
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+
+<ul>
+<li><a href='/home'>Home</a></li>
+</ul>

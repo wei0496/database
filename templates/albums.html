@@ -1,0 +1,61 @@
+<!doctype html>
+<body>
+
+{% if message %}
+<h3>{{message}}</h3>
+{% endif %}
+
+{% if name %}
+<h4>Your tag recommendation is:</h4>
+<h3>{{name}}</h3>
+{% endif %}
+
+{% if photos %}
+<h2>Here's your photos</h2>
+    <ul>
+    {% for photo in photos %}
+        <li><a href = '/albums?photo_id={{photo[2]}}'>caption: {{photo[1]}} photo id: {{photo[2]}}</a></li>
+        <li><img src='data:image/png;base64, {{photo[0]}}'/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if comments %}
+    <ul>
+    <h4> This photo has the following comment: (if user_id = 0 then it is a anonymous user)</h4>
+    {% for row in comments %}
+        <li>user_id({{row[1]}}): {{row[0]}} on {{row[2]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if likes %}
+    <ul>
+    <h4> This photo is liked by {{length}} users:</h4>
+    {% for row in likes %}
+        <li>{{row[0]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<div id="edit">
+	<form method="post" action="{{url_for('album') }}">
+		<label for="caption">Enter the photo_id of the photo you want to delete:</label>
+		<input type="caption" name="caption" /><br />
+        <label for="tag">Tag the photo (input format:photo_id tag):</label>
+        <input type="tag" name="tag" /><br />
+        <label for="recommendation">Tag recommendation (enter the tags you have in mind, separate by ",")</label>
+        <input type="recommendation" name="recommendation" /><br />
+        <label for="pid">Enter the photo_id of the photo you want to see the comments and likes</label>
+        <input type="pid" name="pid" /><br />
+		<input type="submit" />
+	</form>
+</div>
+
+</body>
+
+<ul>
+<li><a href='/home'>Home</a></li>
+<li><a href='/listalbums'>Go back to your albums</a></li>
+<li><a href='/upload'>Upload a photo</a> </li> 
+</ul>

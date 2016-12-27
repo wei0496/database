@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<body>
+	<div id="content">
+		{% if name %}
+		<h3>{{name}}</h3>
+		{% endif %}
+		<h2>Here's your Albums:</h2>
+		<ul>
+			{% for row in message %}
+				<li><a href="/albums?album_id={{row[0]}}">{{row[1]}}</a>  Created on {{row[2]}}</li>
+			{% endfor %}
+		</ul>
+
+{% if tags %}
+    	<h2> Here are all your photo's tags:</h2>
+    	<ul>
+    		{% for row in tags %}
+    			<li><a href="/albums?tag={{row[0]}}">{{row[0]}}</a></li>
+   			{% endfor %}
+    	</ul>
+{% endif %}
+
+	</form>
+</div>
+<div id="edit">
+	<form method="post" action="{{url_for('addordeletealbums') }}">
+		<label for="name">Enter the name of the Album you want to create:</label>
+		<input type="name" name="name" /><br />
+		<label for="name1">Enter the name of the Album you want to delete:</label>
+		<input type="name1" name="name1" /><br />		
+		<input type="submit" />
+	</form>
+</div>
+</body>
+
+<ul>
+	<li><a href='/listalbums'>Go back to your albums</a></li>
+	<li><a href='/home'>Home</a></li>
+</ul>
+</html>
