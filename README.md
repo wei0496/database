@@ -1,4 +1,4 @@
-# CS460-DatabaseINSTALLATIONS
+# Flask INstallations
 ## FLASK
 The first step in the process is to install flask. You can install flask with pip. To install the
 packages using pip open the terminal and type the following command:</br>
