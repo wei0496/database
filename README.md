@@ -5,8 +5,8 @@ packages using pip open the terminal and type the following command:</br>
  - (For python 2.*) sudo pip install Flask</br>
  - (For python 3.*) sudo pip3 install Flask</br>
  - (For anaconda) conda install -c anaconda flask=0.11.1</br>
--FLASK MYSQL</br></br>
- After installing Flask, you must also install the MySQL flask extension with pip. You can
+-FLASK MYSQL</br>
+After installing Flask, you must also install the MySQL flask extension with pip. You can
 install it using the following command:</br>
  - (For python 2.*) sudo pip install flask-mysql</br>
  - (For python 3.*) sudo pip3 install flask-mysql</br>
